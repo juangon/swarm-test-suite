@@ -1,12 +1,16 @@
 package org.wildfly.swarm.ts.microprofile.fault.tolerance.v10;
 
 import org.apache.http.client.fluent.Request;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.Archive;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.swarm.arquillian.DefaultDeployment;
+import org.wildfly.swarm.undertow.WARArchive;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -24,8 +28,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
 @RunWith(Arquillian.class)
-@DefaultDeployment
 public class MicroProfileFaultTolerance10Test {
+
+    @Deployment
+    public static Archive<?> createDeployment() {
+        WARArchive deployment = ShrinkWrap.create(WARArchive.class);
+        deployment.addAsResource("META-INF/beans.xml");
+        deployment.addAsResource("project-defaults-sync.yml","project-defaults.yml");
+        deployment.addPackage(HelloService.class.getPackage());
+        return deployment;
+    }
+
     @Test
     @RunAsClient
     public void timeoutOk() throws IOException {

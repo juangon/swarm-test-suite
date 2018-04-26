@@ -6,3 +6,7 @@ swarm:
           isolation:
             semaphore:
               maxConcurrentRequests: 20
+        execution:
+           isolation:
+              thread:
+                 timeoutInMilliseconds: 30000
