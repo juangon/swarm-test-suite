@@ -34,7 +34,7 @@ public class OpenTracingJaegerIT {
                 .waitForLogLine("\"Health Check state change\",\"status\":\"ready\"")
                 .port("26831:6831/udp") // default Jaeger agent
                 .port("16686:16686") // query service and UI
-                //.port("14250:14250") // jaeger ccollector: used by jaeger-agent to send spans in model.proto format
+                .port("14250:14250") // jaeger ccollector: used by jaeger-agent to send spans in model.proto format
                 .port("14267:14267") // jaeger collector: used by jaeger-agent to send spans in jaeger.thrift format
                 .port("14268:14268") // jaeger collector: can accept spans directly from clients in jaeger.thrift format over binary thrift protocol
                 //.port("14269:14269") // jaeger collector: Health check at /
