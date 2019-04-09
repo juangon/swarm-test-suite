@@ -34,7 +34,13 @@ public class OpenTracingBasicIT {
                 .port("6831:6831/udp") // default Jaeger agent
                 .port("16686:16686") // query service and UI
                 .port("14250:14250") // gRPC
+                .port("14267:14267")
+                .port("14268:14268")
                 .port("14269:14269")
+                .port("5775:5775/udp")
+                .port("5778:5778/tcp")
+                .port("6832:6832/udp")
+                .port("9411:9411")
                 .start();
     }
 
