@@ -37,7 +37,7 @@ public class OpenTracingJaegerIT {
                 .port("14250:14250") // jaeger-collertor: used by jaeger-agent to send spans in model.proto format
                 .port("14267:14267") // jaeger-collector: used by jaeger-agent to send spans in jaeger.thrift format
                 .port("14268:14268") // jaeger-collector: can accept spans directly from clients in jaeger.thrift format over binary thrift protocol
-                //.port("5778:5778")    //Jaeger-agent http server
+                .port("5778:5778")    //Jaeger-agent http server
                 .start();
     }
 
