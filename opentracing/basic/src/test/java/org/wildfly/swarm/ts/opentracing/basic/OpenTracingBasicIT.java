@@ -38,8 +38,8 @@ public class OpenTracingBasicIT {
                 .port("14268:14268") // jaeger collector: can accept spans directly from clients in jaeger.thrift format over binary thrift protocol
                 //.port("14269:14269") // jaeger collector: Health check at /
                 
-                .port("5775:5775/udp") //jaeger agent: accept zipkin.thrift over compact thrift protocol
-                .port("5778:5778/tcp") //Jaeger agent serve configs, sampling strategies
+                .port("5775:5775") //jaeger agent: accept zipkin.thrift over compact thrift protocol
+                .port("5778:5778") //Jaeger agent serve configs, sampling strategies
                 //.port("6831:6831/udp") // jaeger agent: accept jaeger.thrift over compact thrift protocol
                 //.port("6832:6832/udp") // jaeger agent: accept jaeger.thrift over binary thrift protocol
                 .start();
