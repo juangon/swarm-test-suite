@@ -36,7 +36,7 @@ public class OpenTracingBasicIT {
                 .port("14250:14250") // jaeger ccollector: used by jaeger-agent to send spans in model.proto format
                 .port("14267:14267") // jaeger collector: used by jaeger-agent to send spans in jaeger.thrift format
                 .port("14268:14268") // jaeger collector: can accept spans directly from clients in jaeger.thrift format over binary thrift protocol
-                //.port("14269:14269") // jaeger collector: Health check at /
+                .port("14269:14269") // jaeger collector: Health check at /
                 
                 .port("5775:5775") //jaeger agent: accept zipkin.thrift over compact thrift protocol
                 .port("5778:5778") //Jaeger agent serve configs, sampling strategies
